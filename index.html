@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Glass Grind Café</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+      }
+      .font-serif {
+        font-family: "Playfair Display", serif;
+      }
+      /* Ambient backdrop gradients to make the glass effect pop */
+      .ambient-bg {
+        background: radial-gradient(
+          circle at 10% 20%,
+          rgba(243, 237, 226, 1) 0%,
+          rgba(250, 247, 242, 1) 90%
+        );
+      }
+    </style>
+  </head>
+  <body
+    class="ambient-bg text-stone-800 scroll-smooth min-h-screen flex flex-col justify-between"
+  >
+    <!-- NAV BAR (Glossy & Sticky) -->
+    <nav
+      class="bg-white/40 backdrop-blur-md sticky top-0 z-50 border-b border-white/40 shadow-sm"
+    >
+      <div
+        class="flex justify-between items-center px-6 py-4 max-w-6xl mx-auto"
+      >
+        <!-- Brand Logo (SVG + Text) -->
+        <div class="flex items-center gap-2.5">
+          <div
+            class="p-2 bg-amber-900/10 rounded-xl border border-amber-900/20 backdrop-blur-sm"
+          >
+            <svg
+              class="w-6 h-6 text-amber-900"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M17 8h1a4 4 0 1 1 0 8h-1" />
+              <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z" />
+              <line x1="6" y1="2" x2="6" y2="4" />
+              <line x1="10" y1="2" x2="10" y2="4" />
+              <line x1="14" y1="2" x2="14" y2="4" />
+            </svg>
+          </div>
+          <div
+            class="font-serif text-xl tracking-wide font-bold text-[#4a3728]"
+          >
+            GlassGrind.
+          </div>
+        </div>
+
+        <!-- Links for Larger Monitors -->
+        <div class="space-x-8 hidden md:flex font-medium text-stone-600">
+          <a href="#about" class="hover:text-[#4a3728] transition">Our Story</a>
+          <a href="#menu" class="hover:text-[#4a3728] transition">Menu</a>
+          <a href="#book" class="hover:text-[#4a3728] transition">Reserve</a>
+        </div>
+
+        <!-- JavaScript-driven Shop Badge -->
+        <div
+          id="shop-status-badge"
+          class="hidden md:block font-semibold text-xs px-3 py-1.5 rounded-full bg-white/60 backdrop-blur-sm shadow-sm border border-white/80"
+        >
+          Checking status...
+        </div>
+
+        <!-- Mobile Drawer Button -->
+        <button id="menu-toggle-btn" class="md:hidden text-stone-700 text-2xl">
+          ☰
+        </button>
+      </div>
+
+      <!-- Dynamic Mobile Link Panel -->
+      <div
+        id="mobile-nav-links"
+        class="hidden md:hidden bg-white/80 backdrop-blur-lg border-b border-stone-200 px-6 py-4 space-y-3 flex flex-col font-medium text-stone-600"
+      >
+        <a href="#about" class="hover:text-[#4a3728]">Our Story</a>
+        <a href="#menu" class="hover:text-[#4a3728]">Menu</a>
+        <a href="#book" class="hover:text-[#4a3728]">Reserve</a>
+      </div>
+    </nav>
+
+    <!-- MAIN BODY SECTIONS -->
+    <main class="flex-grow">
+      <!-- HERO AREA -->
+      <header
+        id="about"
+        class="max-w-6xl mx-auto px-6 py-16 md:py-24 flex flex-col md:flex-row items-center gap-12"
+      >
+        <div class="flex-1 space-y-6">
+          <span
+            class="text-xs uppercase tracking-widest text-amber-800 font-semibold bg-amber-900/5 px-3 py-1 rounded-full border border-amber-900/10 inline-block"
+            >Locally Roasted Everyday</span
+          >
+          <h1
+            class="font-serif text-4xl md:text-6xl text-[#2c1f15] leading-tight"
+          >
+            Your morning ritual, <br /><span
+              class="italic font-normal text-amber-700"
+              >perfected.</span
+            >
+          </h1>
+          <p
+            class="text-stone-600 max-w-md leading-relaxed text-sm md:text-base"
+          >
+            Experience coffee served through polished precision inside a calm,
+            glowing architectural glass house space.
+          </p>
+          <div class="pt-2">
+            <a
+              href="#menu"
+              class="bg-amber-900 text-white px-8 py-3.5 rounded-full font-medium hover:bg-amber-950 transition shadow-md shadow-amber-900/10 inline-block"
+              >Explore Our Menu</a
+            >
+          </div>
+        </div>
+        <!-- Robust Graphic Container with dynamic CSS backgrounds as a network fallback -->
+        <div
+          class="flex-1 w-full h-[300px] md:h-[400px] rounded-3xl overflow-hidden shadow-xl border border-white/50 bg-gradient-to-tr from-amber-900 via-amber-800 to-orange-100 bg-cover bg-center shadow-amber-900/5"
+          style="
+            background-image: url(&quot;https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=800&quot;);
+          "
+        ></div>
+      </header>
+
+      <!-- PRODUCT BAR GRID WITH GLOSSY FILTERS -->
+      <section
+        id="menu"
+        class="bg-stone-900/5 backdrop-blur-sm border-y border-stone-200/50 py-20 px-6"
+      >
+        <div class="max-w-6xl mx-auto">
+          <div class="text-center space-y-3 mb-12">
+            <h2 class="font-serif text-3xl md:text-4xl text-[#2c1f15]">
+              On the Bar
+            </h2>
+            <p class="text-stone-500 text-xs">
+              Filter categories directly via internal DOM data updates.
+            </p>
+
+            <!-- Shiny UI Selector Tabs -->
+            <div class="flex justify-center gap-2.5 pt-4">
+              <button
+                class="filter-btn px-5 py-2 rounded-full text-xs font-semibold bg-amber-900 text-white transition shadow-sm"
+                data-category="all"
+              >
+                All Items
+              </button>
+              <button
+                class="filter-btn px-5 py-2 rounded-full text-xs font-semibold bg-white/60 hover:bg-white text-stone-600 transition shadow-sm border border-white/60"
+                data-category="coffee"
+              >
+                Coffee
+              </button>
+              <button
+                class="filter-btn px-5 py-2 rounded-full text-xs font-semibold bg-white/60 hover:bg-white text-stone-600 transition shadow-sm border border-white/60"
+                data-category="pastry"
+              >
+                Bakery
+              </button>
+            </div>
+          </div>
+
+          <!-- Glass Cards Collection Container -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            <!-- Glass Card Item -->
+            <div
+              class="menu-item-card bg-white/40 backdrop-blur-md p-6 rounded-2xl border border-white/60 shadow-sm hover:border-amber-900/20 transition-all duration-300"
+              data-item-type="coffee"
+            >
+              <div class="flex justify-between items-center mb-2">
+                <h3 class="font-serif text-lg text-[#2c1f15] font-bold">
+                  Cold Brew Espresso
+                </h3>
+                <span
+                  class="text-xs font-bold text-amber-900 bg-white/80 px-2.5 py-1 rounded-xl border border-white shadow-sm"
+                  >$4.25</span
+                >
+              </div>
+              <p class="text-stone-500 text-xs leading-relaxed">
+                Steeped systematically for 16 hours, served over carved clear
+                ice blocks.
+              </p>
+            </div>
+
+            <!-- Glass Card Item -->
+            <div
+              class="menu-item-card bg-white/40 backdrop-blur-md p-6 rounded-2xl border border-white/60 shadow-sm hover:border-amber-900/20 transition-all duration-300"
+              data-item-type="coffee"
+            >
+              <div class="flex justify-between items-center mb-2">
+                <h3 class="font-serif text-lg text-[#2c1f15] font-bold">
+                  Velvet Flat White
+                </h3>
+                <span
+                  class="text-xs font-bold text-amber-900 bg-white/80 px-2.5 py-1 rounded-xl border border-white shadow-sm"
+                  >$4.50</span
+                >
+              </div>
+              <p class="text-stone-500 text-xs leading-relaxed">
+                Double ristretto base capped with tight microfoam gloss texture.
+              </p>
+            </div>
+
+            <!-- Glass Card Item -->
+            <div
+              class="menu-item-card bg-white/40 backdrop-blur-md p-6 rounded-2xl border border-white/60 shadow-sm hover:border-amber-900/20 transition-all duration-300"
+              data-item-type="pastry"
+            >
+              <div class="flex justify-between items-center mb-2">
+                <h3 class="font-serif text-lg text-[#2c1f15] font-bold">
+                  Almond Croissant
+                </h3>
+                <span
+                  class="text-xs font-bold text-amber-900 bg-white/80 px-2.5 py-1 rounded-xl border border-white shadow-sm"
+                  >$4.75</span
+                >
+              </div>
+              <p class="text-stone-500 text-xs leading-relaxed">
+                Flaky buttery double-baked layers containing rich frangipane
+                paste fill.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BOOKING / FORM SUBMISSION -->
+      <section id="book" class="max-w-md mx-auto px-6 py-20">
+        <div
+          class="bg-white/40 backdrop-blur-xl p-8 rounded-3xl border border-white/80 shadow-lg shadow-stone-900/5"
+        >
+          <div class="text-center space-y-1.5 mb-6">
+            <h2 class="font-serif text-2xl text-[#2c1f15] font-bold">
+              Reserve a Seat
+            </h2>
+            <p class="text-stone-500 text-xs">
+              Instantly submit verification rows to layout states.
+            </p>
+          </div>
+
+          <form id="table-booking-form" class="space-y-4">
+            <div>
+              <label
+                class="block text-[10px] font-bold uppercase tracking-widest text-stone-500 mb-1"
+                >Your Name</label
+              >
+              <input
+                type="text"
+                id="client-name"
+                class="w-full p-3 rounded-xl bg-white/50 border border-white text-xs focus:outline-none focus:border-amber-900/40 transition"
+                placeholder="Ex. David"
+              />
+            </div>
+            <div>
+              <label
+                class="block text-[10px] font-bold uppercase tracking-widest text-stone-500 mb-1"
+                >Email Address</label
+              >
+              <input
+                type="email"
+                id="client-email"
+                class="w-full p-3 rounded-xl bg-white/50 border border-white text-xs focus:outline-none focus:border-amber-900/40 transition"
+                placeholder="david@domain.com"
+              />
+            </div>
+            <button
+              type="submit"
+              class="w-full bg-amber-900 hover:bg-amber-950 text-white p-3.5 rounded-xl text-xs font-semibold transition shadow-sm"
+            >
+              Confirm Table Setup
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- CLEAN SYSTEM FOOTER -->
+    <footer
+      class="bg-stone-900 text-stone-400 border-t border-stone-800 text-xs"
+    >
+      <div
+        class="max-w-6xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-8"
+      >
+        <!-- Brand Column -->
+        <div class="space-y-3">
+          <div class="flex items-center gap-2">
+            <svg
+              class="w-5 h-5 text-amber-600"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M17 8h1a4 4 0 1 1 0 8h-1M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"
+              />
+            </svg>
+            <span
+              class="font-serif text-base text-stone-100 font-bold tracking-wide"
+              >GlassGrind.</span
+            >
+          </div>
+          <p class="text-stone-500 max-w-xs leading-relaxed">
+            Crafting high-fidelity hospitality interfaces and specialty
+            extractions daily.
+          </p>
+        </div>
+        <!-- Hours Column -->
+        <div class="space-y-2">
+          <h4
+            class="text-stone-200 font-semibold tracking-wider uppercase text-[10px]"
+          >
+            Bar Operations
+          </h4>
+          <p>Monday — Friday: 7:00 AM — 6:00 PM</p>
+          <p>Saturday — Sunday: 8:00 AM — 4:00 PM</p>
+        </div>
+        <!-- Meta Details Column -->
+        <div class="space-y-2">
+          <h4
+            class="text-stone-200 font-semibold tracking-wider uppercase text-[10px]"
+          >
+            Location Data
+          </h4>
+          <p>102 Glass pavilion Blvd, Arts District</p>
+          <p class="text-stone-600">
+            &copy; 2026 GlassGrind Operations. Local client sandboxed setup.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ========================================================================= -->
+    <!-- DOM FUNCTIONALITY SCRIPT PLUGINS -->
+    <!-- ========================================================================= -->
+    <script src="script.js"></script>
+  </body>
+</html>
